@@ -282,6 +282,28 @@ nav.sc{border-color:var(--bd);}
 .calt a{color:var(--m2);transition:color .2s;}
 .calt a:hover{color:var(--g);}
 
+/* WHATSAPP PHONE PICKER */
+.wa-row{display:flex;gap:8px;align-items:stretch;position:relative;}
+.wa-pick{display:flex;align-items:center;gap:8px;background:#1c1e2e;border:1.5px solid rgba(255,255,255,0.22);border-radius:10px;padding:0 12px;cursor:pointer;min-width:112px;flex-shrink:0;height:50px;transition:border-color .2s,box-shadow .2s;user-select:none;}
+.wa-pick:hover{border-color:rgba(255,255,255,0.4);}
+.wa-pick.open{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,229,160,0.12);}
+.wa-flag{font-size:18px;line-height:1;}
+.wa-code{font-family:'DM Mono',monospace;font-size:13px;color:#b8b8d0;white-space:nowrap;}
+.wa-chev{margin-left:auto;flex-shrink:0;transition:transform .2s;color:rgba(255,255,255,0.3);}
+.wa-pick.open .wa-chev{transform:rotate(180deg);}
+.wa-drop{position:absolute;top:calc(100% + 6px);left:0;width:290px;background:#12141f;border:1.5px solid rgba(255,255,255,0.22);border-radius:12px;z-index:300;overflow:hidden;box-shadow:0 20px 56px rgba(0,0,0,0.75);}
+.wa-search{width:100%;background:#1c1e2e;border:none;border-bottom:1px solid rgba(255,255,255,0.1);padding:12px 14px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none;}
+.wa-search::placeholder{color:#4a4a6a;}
+.wa-list{max-height:210px;overflow-y:auto;}
+.wa-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:background .12s;}
+.wa-item:hover{background:rgba(0,229,160,0.07);}
+.wa-item.sel{background:rgba(0,229,160,0.1);}
+.wa-if{font-size:16px;line-height:1;flex-shrink:0;}
+.wa-in{font-size:13px;color:#cccce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.wa-id{font-family:'DM Mono',monospace;font-size:11px;color:#5a5a7a;flex-shrink:0;}
+.wa-item.sel .wa-in,.wa-item.sel .wa-id{color:var(--g);}
+.wa-num{flex:1;min-width:0;}
+
 footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;position:relative;z-index:4;}
 .fi{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .fl{display:flex;align-items:center;gap:11px;}
@@ -644,7 +666,21 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
         <div><label class="flbl">Your name</label><input class="finp" id="f-name" type="text" placeholder="Firstname Lastname" required></div>
         <div><label class="flbl">Email</label><input class="finp" id="f-email" type="email" placeholder="you@company.com" required></div>
         <div><label class="flbl">Company / Website</label><input class="finp" id="f-co" type="text" placeholder="yourcompany.com (optional)"></div>
-        <div><label class="flbl">WhatsApp Number <span style="color:#4a4a6a;font-size:9px;letter-spacing:.1em;">OPTIONAL</span></label><input class="finp" id="f-wa" type="tel" placeholder="+1 234 567 8900"></div>
+        <div>
+          <label class="flbl">WhatsApp <span style="color:#4a4a6a;font-size:9px;letter-spacing:.1em;">OPTIONAL</span></label>
+          <div class="wa-row" id="wa-wrap">
+            <button type="button" class="wa-pick" id="wa-pick" aria-label="Select country code">
+              <span class="wa-flag" id="wa-flag">🌍</span>
+              <span class="wa-code" id="wa-code">+—</span>
+              <svg class="wa-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="wa-drop" id="wa-drop" style="display:none;">
+              <input class="wa-search" id="wa-search" type="text" placeholder="Search country…" autocomplete="off">
+              <div class="wa-list" id="wa-list"></div>
+            </div>
+            <input class="finp wa-num" id="f-wa" type="tel" inputmode="numeric" placeholder="WhatsApp number">
+          </div>
+        </div>
         <div><label class="flbl">What are you working on?</label><textarea class="ftxt" id="f-msg" placeholder="Tell us about the challenge, the scale, and what you've tried so far..." required></textarea></div>
         <button type="submit" class="fsub" id="fsub-btn">Send signal →</button>
         <div id="form-status" style="display:none;font-family:'DM Mono',monospace;font-size:12px;color:var(--g);text-align:center;padding:14px;border:1px solid rgba(0,229,160,0.3);border-radius:10px;background:#0a1a12;"></div>
@@ -914,6 +950,125 @@ document.querySelectorAll('.btn-p,.btn-g,.fsub,.ncta').forEach(btn=>{
 });
 
 // ══════════════════════════════════════════════════════
+//  WHATSAPP PHONE PICKER
+// ══════════════════════════════════════════════════════
+(function(){
+  const C=[
+    {iso:'AE',name:'United Arab Emirates',flag:'🇦🇪',dial:'971'},
+    {iso:'AF',name:'Afghanistan',flag:'🇦🇫',dial:'93'},
+    {iso:'AM',name:'Armenia',flag:'🇦🇲',dial:'374'},
+    {iso:'AU',name:'Australia',flag:'🇦🇺',dial:'61'},
+    {iso:'AT',name:'Austria',flag:'🇦🇹',dial:'43'},
+    {iso:'AZ',name:'Azerbaijan',flag:'🇦🇿',dial:'994'},
+    {iso:'BH',name:'Bahrain',flag:'🇧🇭',dial:'973'},
+    {iso:'BE',name:'Belgium',flag:'🇧🇪',dial:'32'},
+    {iso:'BY',name:'Belarus',flag:'🇧🇾',dial:'375'},
+    {iso:'BG',name:'Bulgaria',flag:'🇧🇬',dial:'359'},
+    {iso:'CA',name:'Canada',flag:'🇨🇦',dial:'1'},
+    {iso:'CH',name:'Switzerland',flag:'🇨🇭',dial:'41'},
+    {iso:'CN',name:'China',flag:'🇨🇳',dial:'86'},
+    {iso:'CY',name:'Cyprus',flag:'🇨🇾',dial:'357'},
+    {iso:'CZ',name:'Czech Republic',flag:'🇨🇿',dial:'420'},
+    {iso:'DE',name:'Germany',flag:'🇩🇪',dial:'49'},
+    {iso:'DK',name:'Denmark',flag:'🇩🇰',dial:'45'},
+    {iso:'EG',name:'Egypt',flag:'🇪🇬',dial:'20'},
+    {iso:'ES',name:'Spain',flag:'🇪🇸',dial:'34'},
+    {iso:'FI',name:'Finland',flag:'🇫🇮',dial:'358'},
+    {iso:'FR',name:'France',flag:'🇫🇷',dial:'33'},
+    {iso:'GB',name:'United Kingdom',flag:'🇬🇧',dial:'44'},
+    {iso:'GE',name:'Georgia',flag:'🇬🇪',dial:'995'},
+    {iso:'GR',name:'Greece',flag:'🇬🇷',dial:'30'},
+    {iso:'HR',name:'Croatia',flag:'🇭🇷',dial:'385'},
+    {iso:'HU',name:'Hungary',flag:'🇭🇺',dial:'36'},
+    {iso:'ID',name:'Indonesia',flag:'🇮🇩',dial:'62'},
+    {iso:'IL',name:'Israel',flag:'🇮🇱',dial:'972'},
+    {iso:'IN',name:'India',flag:'🇮🇳',dial:'91'},
+    {iso:'IQ',name:'Iraq',flag:'🇮🇶',dial:'964'},
+    {iso:'IR',name:'Iran',flag:'🇮🇷',dial:'98'},
+    {iso:'IT',name:'Italy',flag:'🇮🇹',dial:'39'},
+    {iso:'JO',name:'Jordan',flag:'🇯🇴',dial:'962'},
+    {iso:'JP',name:'Japan',flag:'🇯🇵',dial:'81'},
+    {iso:'KW',name:'Kuwait',flag:'🇰🇼',dial:'965'},
+    {iso:'KZ',name:'Kazakhstan',flag:'🇰🇿',dial:'7'},
+    {iso:'LB',name:'Lebanon',flag:'🇱🇧',dial:'961'},
+    {iso:'LK',name:'Sri Lanka',flag:'🇱🇰',dial:'94'},
+    {iso:'MA',name:'Morocco',flag:'🇲🇦',dial:'212'},
+    {iso:'MY',name:'Malaysia',flag:'🇲🇾',dial:'60'},
+    {iso:'NL',name:'Netherlands',flag:'🇳🇱',dial:'31'},
+    {iso:'NO',name:'Norway',flag:'🇳🇴',dial:'47'},
+    {iso:'NZ',name:'New Zealand',flag:'🇳🇿',dial:'64'},
+    {iso:'OM',name:'Oman',flag:'🇴🇲',dial:'968'},
+    {iso:'PH',name:'Philippines',flag:'🇵🇭',dial:'63'},
+    {iso:'PK',name:'Pakistan',flag:'🇵🇰',dial:'92'},
+    {iso:'PL',name:'Poland',flag:'🇵🇱',dial:'48'},
+    {iso:'PT',name:'Portugal',flag:'🇵🇹',dial:'351'},
+    {iso:'QA',name:'Qatar',flag:'🇶🇦',dial:'974'},
+    {iso:'RO',name:'Romania',flag:'🇷🇴',dial:'40'},
+    {iso:'RS',name:'Serbia',flag:'🇷🇸',dial:'381'},
+    {iso:'RU',name:'Russia',flag:'🇷🇺',dial:'7'},
+    {iso:'SA',name:'Saudi Arabia',flag:'🇸🇦',dial:'966'},
+    {iso:'SE',name:'Sweden',flag:'🇸🇪',dial:'46'},
+    {iso:'SG',name:'Singapore',flag:'🇸🇬',dial:'65'},
+    {iso:'SK',name:'Slovakia',flag:'🇸🇰',dial:'421'},
+    {iso:'TH',name:'Thailand',flag:'🇹🇭',dial:'66'},
+    {iso:'TR',name:'Turkey',flag:'🇹🇷',dial:'90'},
+    {iso:'UA',name:'Ukraine',flag:'🇺🇦',dial:'380'},
+    {iso:'US',name:'United States',flag:'🇺🇸',dial:'1'},
+    {iso:'UZ',name:'Uzbekistan',flag:'🇺🇿',dial:'998'},
+    {iso:'ZA',name:'South Africa',flag:'🇿🇦',dial:'27'},
+  ];
+
+  let sel = C.find(c=>c.iso==='IN'); // default India
+  let isOpen = false;
+
+  const pick=document.getElementById('wa-pick');
+  const flagEl=document.getElementById('wa-flag');
+  const codeEl=document.getElementById('wa-code');
+  const drop=document.getElementById('wa-drop');
+  const srch=document.getElementById('wa-search');
+  const listEl=document.getElementById('wa-list');
+
+  flagEl.textContent=sel.flag;
+  codeEl.textContent='+'+sel.dial;
+
+  function renderList(countries){
+    listEl.innerHTML=countries.map(c=>`<div class="wa-item${c.iso===sel.iso?' sel':''}" data-iso="${c.iso}"><span class="wa-if">${c.flag}</span><span class="wa-in">${c.name}</span><span class="wa-id">+${c.dial}</span></div>`).join('');
+    listEl.querySelectorAll('.wa-item').forEach(el=>el.addEventListener('click',()=>{
+      sel=C.find(c=>c.iso===el.dataset.iso);
+      flagEl.textContent=sel.flag;
+      codeEl.textContent='+'+sel.dial;
+      close();
+    }));
+    // scroll selected into view
+    const s=listEl.querySelector('.sel');
+    if(s) s.scrollIntoView({block:'nearest'});
+  }
+
+  function open(){
+    drop.style.display='block';pick.classList.add('open');
+    srch.value='';renderList(C);srch.focus();isOpen=true;
+  }
+  function close(){
+    drop.style.display='none';pick.classList.remove('open');isOpen=false;
+  }
+
+  pick.addEventListener('click',()=>isOpen?close():open());
+  srch.addEventListener('input',()=>{
+    const q=srch.value.trim().toLowerCase();
+    renderList(q?C.filter(c=>c.name.toLowerCase().includes(q)||c.dial.includes(q)):C);
+  });
+  document.addEventListener('mousedown',e=>{
+    if(isOpen&&!document.getElementById('wa-wrap').contains(e.target)) close();
+  });
+
+  window._waGet=function(){
+    const num=(document.getElementById('f-wa').value||'').replace(/\D/g,'');
+    if(!num) return null;
+    return {full:`+${sel.dial} ${num}`,country:sel.name,dial:'+'+sel.dial,number:num};
+  };
+})();
+
+// ══════════════════════════════════════════════════════
 //  CONTACT FORM → FORMSPREE
 // ══════════════════════════════════════════════════════
 const FORMSPREE = 'https://formspree.io/f/mzdlvdqq';
@@ -921,12 +1076,13 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   e.preventDefault();
   const btn=document.getElementById('fsub-btn'), status=document.getElementById('form-status');
   btn.textContent='Sending…'; btn.disabled=true;
-  const wa = document.getElementById('f-wa').value;
+  const wa = window._waGet();
   const payload={
     name: document.getElementById('f-name').value,
     email: document.getElementById('f-email').value,
     company: document.getElementById('f-co').value,
-    whatsapp: wa || '—',
+    whatsapp: wa ? wa.full : '—',
+    whatsapp_country: wa ? wa.country : '—',
     message: document.getElementById('f-msg').value,
     _subject: `New lead — navik.io — ${document.getElementById('f-name').value}`,
   };
