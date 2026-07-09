@@ -131,34 +131,32 @@ nav.sc{border-color:var(--bd);}
 .ssub{font-size:18px;color:var(--m2);line-height:1.7;max-width:540px;}
 
 /* ── SCROLL REVEAL SYSTEM ── */
-/* Each element type gets its own cinematic entrance */
-
 /* Base: fade + rise */
-.rv{opacity:0;transform:translateY(44px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.23,1,.32,1),transform .65s cubic-bezier(.23,1,.32,1);}
 .rv.vis{opacity:1;transform:translateY(0);}
 
-/* Eyebrow: scan in from left with green line */
-.rv-eye{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s cubic-bezier(.23,1,.32,1);}
+/* Eyebrow: scan in from left */
+.rv-eye{opacity:0;transform:translateX(-24px);transition:opacity .55s ease,transform .55s cubic-bezier(.23,1,.32,1);}
 .rv-eye.vis{opacity:1;transform:translateX(0);}
 
-/* Headline: scale up from 80% + rise */
-.rv-h{opacity:0;transform:translateY(50px) scale(.88);transition:opacity 1s cubic-bezier(.23,1,.32,1),transform 1s cubic-bezier(.23,1,.32,1);}
-.rv-h.vis{opacity:1;transform:translateY(0) scale(1);}
+/* Headline: rise (no scale — scale on text is expensive) */
+.rv-h{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
+.rv-h.vis{opacity:1;transform:translateY(0);}
 
-/* Cards: scale from 90% + rise, each with depth */
-.rv-card{opacity:0;transform:translateY(60px) scale(.92);transition:opacity .85s cubic-bezier(.23,1,.32,1),transform .85s cubic-bezier(.23,1,.32,1);will-change:transform;}
-.rv-card.vis{opacity:1;transform:translateY(0) scale(1);}
+/* Cards: rise (no scale — compositing cost not worth it) */
+.rv-card{opacity:0;transform:translateY(40px);transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1);will-change:transform,opacity;}
+.rv-card.vis{opacity:1;transform:translateY(0);will-change:auto;}
 
-/* Stats: slide up + number glow */
-.rv-stat{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
+/* Stats: slide up */
+.rv-stat{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1);}
 .rv-stat.vis{opacity:1;transform:translateY(0);}
 
 /* Left slide */
-.rv-left{opacity:0;transform:translateX(-56px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
+.rv-left{opacity:0;transform:translateX(-44px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
 .rv-left.vis{opacity:1;transform:translateX(0);}
 
 /* Right slide */
-.rv-right{opacity:0;transform:translateX(56px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
+.rv-right{opacity:0;transform:translateX(44px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
 .rv-right.vis{opacity:1;transform:translateX(0);}
 
 /* Stagger delays */
@@ -293,8 +291,83 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
 .flinks a:hover{color:var(--t);}
 .fr{font-family:'DM Mono',monospace;font-size:10px;color:var(--m);letter-spacing:.06em;text-align:right;line-height:1.7;}
 
-@media(max-width:1024px){.sgrid{grid-template-columns:1fr 1fr;}.psteps{grid-template-columns:1fr 1fr;gap:36px;}.ptrack{display:none;}.agrid{grid-template-columns:1fr;gap:52px;}.cfeat{grid-template-columns:1fr;}.cvis{display:none;}.srow{grid-template-columns:1fr 1fr;gap:28px;}.sblk{border-right:none;border-bottom:1px solid var(--bd);padding:0 0 28px;}.sblk:nth-last-child(-n+2){border-bottom:none;}.aigrid{grid-template-columns:1fr 1fr;}}
-@media(max-width:768px){nav{padding:0 24px;}.nlinks{display:none;}.swrap{padding:80px 24px;}#worked{padding:40px 24px;}.sgrid,.sbot,.aigrid,.cminis,.acards{grid-template-columns:1fr;}.psteps{grid-template-columns:1fr;}.f-toast,.f-metric,.f-badge{display:none;}footer{padding:28px 24px;}.fi{flex-direction:column;align-items:flex-start;}.fr{text-align:left;}}
+/* Touch devices: hide custom cursor */
+@media(pointer:coarse){#cdot,#cring,.ctr{display:none!important;}body{cursor:auto;}}
+
+@media(max-width:1024px){
+  .swrap{padding:100px 40px;}
+  #worked{padding:48px 40px;}
+  .cc{padding:44px 40px;}
+  .sgrid{grid-template-columns:1fr 1fr;}
+  .psteps{grid-template-columns:1fr 1fr;gap:36px;}
+  .ptrack{display:none;}
+  .agrid{grid-template-columns:1fr;gap:52px;}
+  .cfeat{grid-template-columns:1fr;}
+  .cvis{display:none;}
+  .srow{grid-template-columns:1fr 1fr;gap:28px;}
+  .sblk{border-right:none;border-bottom:1px solid var(--bd);padding:0 0 28px;}
+  .sblk:nth-last-child(-n+2){border-bottom:none;}
+  .aigrid{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:768px){
+  nav{padding:0 24px;}
+  .nlinks{display:none;}
+  .swrap{padding:76px 24px;}
+  #worked{padding:40px 24px;}
+  .sgrid,.sbot,.aigrid,.cminis,.acards,.srow{grid-template-columns:1fr;}
+  .psteps{grid-template-columns:1fr;}
+  .f-toast,.f-metric,.f-badge{display:none;}
+  footer{padding:28px 24px;}
+  .fi{flex-direction:column;align-items:flex-start;}
+  .fr{text-align:left;}
+  /* Work case study */
+  .cc{padding:32px 24px;}
+  /* Form */
+  .cform{padding:24px 20px;}
+  /* Typography tightening */
+  .hh{letter-spacing:-1.5px;}
+  .sh{letter-spacing:-1px;}
+  .chline{font-size:clamp(44px,12vw,76px);letter-spacing:-1.5px;}
+  /* Hero CTAs — stack vertically */
+  .hctas{flex-direction:column;align-items:center;gap:12px;}
+  .hctas .btn-p,.hctas .btn-g{width:100%;max-width:320px;justify-content:center;}
+  /* Services CTA row */
+  .scta-row{flex-direction:column;gap:16px;}
+  /* Contact alt line */
+  .calt{flex-direction:column;gap:10px;align-items:center;}
+  /* Stats */
+  .snum{font-size:42px;letter-spacing:-1.5px;}
+  .wcos{gap:20px;}
+  /* Quote card */
+  .aquote{padding:28px 24px;}
+  /* About stat cards — single column */
+  .acards{grid-template-columns:1fr;}
+  /* Stats row — reset border rules for single column */
+  .sblk{border-right:none;border-bottom:1px solid var(--bd);padding:0 0 24px;}
+  .sblk:nth-last-child(-n+2){border-bottom:1px solid var(--bd);}
+  .sblk:last-child{border-bottom:none;}
+  /* Contact section */
+  .cin{max-width:100%;}
+  /* Engagement grid already has its own rule but ensure: */
+  .eng-grid{grid-template-columns:1fr;}
+}
+
+@media(max-width:480px){
+  .swrap{padding:60px 16px;}
+  #worked{padding:32px 16px;}
+  footer{padding:24px 16px;}
+  .cform{padding:20px 14px;}
+  .hh{letter-spacing:-1px;}
+  .sh{font-size:clamp(28px,8vw,46px);letter-spacing:-0.5px;}
+  .chline{letter-spacing:-1px;}
+  .snum{font-size:36px;}
+  .btn-p,.btn-g{padding:14px 24px;font-size:14px;}
+  .wcos{gap:16px;}
+  .wco{font-size:15px;}
+  .calt{font-size:10px;}
+}
+
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 
 /* HAMBURGER */
@@ -596,6 +669,8 @@ const sky = document.getElementById('sky');
 const ctx = sky.getContext('2d');
 let W, H, stars = [];
 let mouseX = -999, mouseY = -999;
+let skyPaused = false;
+document.addEventListener('visibilitychange', () => { skyPaused = document.hidden; });
 
 function resize() { W = sky.width = window.innerWidth; H = sky.height = window.innerHeight; }
 resize();
@@ -623,14 +698,15 @@ function makeStar() {
 }
 
 function initStars() {
-  const count = Math.min(Math.floor((W * H) / 1600), 800);
+  const mobile = W < 768;
+  const count = Math.min(Math.floor((W * H) / (mobile ? 8000 : 2600)), mobile ? 80 : 360);
   stars = Array.from({length: count}, makeStar);
 }
 initStars();
 
 document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
-const REPEL = 150, FORCE = 3.2, RETURN = 0.013, DAMP = 0.85, CONN = 160;
+const REPEL = 140, FORCE = 3.2, RETURN = 0.013, DAMP = 0.85, CONN = 120;
 
 function drawArrow(x, y, angleDeg, size, alpha) {
   ctx.save();
@@ -657,61 +733,66 @@ function drawArrow(x, y, angleDeg, size, alpha) {
 }
 
 function tick() {
-  ctx.clearRect(0, 0, W, H);
+  if (!skyPaused) {
+    ctx.clearRect(0, 0, W, H);
 
-  stars.forEach(s => {
-    // Drift in direction
-    s.x += s.dir.dx * s.speed;
-    s.y += s.dir.dy * s.speed;
-    if (s.x < -20) s.x = W + 20;
-    if (s.x > W + 20) s.x = -20;
-    if (s.y < -20) s.y = H + 20;
-    if (s.y > H + 20) s.y = -20;
+    stars.forEach(s => {
+      s.x += s.dir.dx * s.speed;
+      s.y += s.dir.dy * s.speed;
+      if (s.x < -20) s.x = W + 20;
+      if (s.x > W + 20) s.x = -20;
+      if (s.y < -20) s.y = H + 20;
+      if (s.y > H + 20) s.y = -20;
 
-    // Cursor repulsion
-    const dx = s.x - mouseX, dy = s.y - mouseY;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if (dist < REPEL && dist > 0) {
-      const f = ((REPEL - dist) / REPEL) * FORCE * (0.4 + s.layer * 1.0);
-      s.vx += (dx / dist) * f;
-      s.vy += (dy / dist) * f;
-    }
-    s.vx += -s.ox * RETURN;
-    s.vy += -s.oy * RETURN;
-    s.vx *= DAMP; s.vy *= DAMP;
-    s.ox += s.vx; s.oy += s.vy;
-  });
+      const dx = s.x - mouseX, dy = s.y - mouseY;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < REPEL && dist > 0) {
+        const f = ((REPEL - dist) / REPEL) * FORCE * (0.4 + s.layer * 1.0);
+        s.vx += (dx / dist) * f;
+        s.vy += (dy / dist) * f;
+      }
+      s.vx += -s.ox * RETURN;
+      s.vy += -s.oy * RETURN;
+      s.vx *= DAMP; s.vy *= DAMP;
+      s.ox += s.vx; s.oy += s.vy;
+    });
 
-  // Constellation lines
-  for (let i = 0; i < stars.length; i++) {
-    const a = stars[i], ax = a.x + a.ox, ay = a.y + a.oy;
-    for (let j = i + 1; j < stars.length; j++) {
-      const b = stars[j], bx = b.x + b.ox, by = b.y + b.oy;
-      const dx = ax-bx, dy = ay-by, d = Math.sqrt(dx*dx+dy*dy);
-      if (d < CONN) {
-        const mx = (ax+bx)/2-mouseX, my = (ay+by)/2-mouseY;
-        const md = Math.sqrt(mx*mx+my*my);
-        const boost = md < 160 ? (1-md/160)*0.1 : 0;
-        const alpha = Math.min((a.bright+b.bright)/2*(1-d/CONN)+boost, 0.2);
-        ctx.beginPath();
-        ctx.moveTo(ax, ay); ctx.lineTo(bx, by);
-        ctx.strokeStyle = `rgba(0,229,160,${alpha})`;
-        ctx.lineWidth = 0.45;
-        ctx.stroke();
+    // Constellation lines — bbox pre-check + 5-connection cap per star
+    for (let i = 0; i < stars.length; i++) {
+      const a = stars[i], ax = a.x + a.ox, ay = a.y + a.oy;
+      let conns = 0;
+      for (let j = i + 1; j < stars.length; j++) {
+        if (conns >= 5) break;
+        const b = stars[j], bx = b.x + b.ox, by = b.y + b.oy;
+        const dx = ax-bx, dy = ay-by;
+        if (Math.abs(dx) > CONN || Math.abs(dy) > CONN) continue;
+        const d = Math.sqrt(dx*dx+dy*dy);
+        if (d < CONN) {
+          conns++;
+          const mx = (ax+bx)/2-mouseX, my = (ay+by)/2-mouseY;
+          const md = Math.sqrt(mx*mx+my*my);
+          const boost = md < 140 ? (1-md/140)*0.1 : 0;
+          const alpha = Math.min((a.bright+b.bright)/2*(1-d/CONN)+boost, 0.18);
+          ctx.beginPath();
+          ctx.moveTo(ax, ay); ctx.lineTo(bx, by);
+          ctx.strokeStyle = `rgba(0,229,160,${alpha})`;
+          ctx.lineWidth = 0.4;
+          ctx.stroke();
+        }
       }
     }
-  }
 
-  // Arrow pebbles
-  stars.forEach(s => {
-    const sx = s.x + s.ox, sy = s.y + s.oy;
-    const mdx = sx-mouseX, mdy = sy-mouseY;
-    const md = Math.sqrt(mdx*mdx+mdy*mdy);
-    const glow = md < 120 ? (1-md/120)*0.55 : 0;
-    const alpha = Math.min(s.alpha + glow, 0.88);
-    const sz = s.size + glow * s.size * 0.9;
-    drawArrow(sx, sy, s.dir.a, sz, alpha);
-  });
+    // Arrow pebbles
+    stars.forEach(s => {
+      const sx = s.x + s.ox, sy = s.y + s.oy;
+      const mdx = sx-mouseX, mdy = sy-mouseY;
+      const md = Math.sqrt(mdx*mdx+mdy*mdy);
+      const glow = md < 120 ? (1-md/120)*0.55 : 0;
+      const alpha = Math.min(s.alpha + glow, 0.88);
+      const sz = s.size + glow * s.size * 0.9;
+      drawArrow(sx, sy, s.dir.a, sz, alpha);
+    });
+  }
 
   requestAnimationFrame(tick);
 }
