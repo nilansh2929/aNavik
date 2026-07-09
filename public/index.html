@@ -794,29 +794,34 @@ function tick() {
       s.ox += s.vx; s.oy += s.vy;
     });
 
-    // Constellation lines — bbox pre-check + 5-connection cap per star
+    // Constellation lines — batched into 2 path draws (not 1 per line)
+    // bbox pre-check + 4-connection cap per star
+    const dimPts=[], brightPts=[];
     for (let i = 0; i < stars.length; i++) {
       const a = stars[i], ax = a.x + a.ox, ay = a.y + a.oy;
       let conns = 0;
       for (let j = i + 1; j < stars.length; j++) {
-        if (conns >= 5) break;
+        if (conns >= 4) break;
         const b = stars[j], bx = b.x + b.ox, by = b.y + b.oy;
         const dx = ax-bx, dy = ay-by;
         if (Math.abs(dx) > CONN || Math.abs(dy) > CONN) continue;
         const d = Math.sqrt(dx*dx+dy*dy);
         if (d < CONN) {
           conns++;
-          const mx = (ax+bx)/2-mouseX, my = (ay+by)/2-mouseY;
-          const md = Math.sqrt(mx*mx+my*my);
-          const boost = md < 140 ? (1-md/140)*0.1 : 0;
-          const alpha = Math.min((a.bright+b.bright)/2*(1-d/CONN)+boost, 0.18);
-          ctx.beginPath();
-          ctx.moveTo(ax, ay); ctx.lineTo(bx, by);
-          ctx.strokeStyle = `rgba(0,229,160,${alpha})`;
-          ctx.lineWidth = 0.4;
-          ctx.stroke();
+          const brightness = (a.bright+b.bright)/2*(1-d/CONN);
+          (brightness > 0.065 ? brightPts : dimPts).push(ax,ay,bx,by);
         }
       }
+    }
+    if (dimPts.length) {
+      ctx.beginPath();
+      for (let i=0;i<dimPts.length;i+=4){ctx.moveTo(dimPts[i],dimPts[i+1]);ctx.lineTo(dimPts[i+2],dimPts[i+3]);}
+      ctx.strokeStyle='rgba(0,229,160,0.05)';ctx.lineWidth=0.4;ctx.stroke();
+    }
+    if (brightPts.length) {
+      ctx.beginPath();
+      for (let i=0;i<brightPts.length;i+=4){ctx.moveTo(brightPts[i],brightPts[i+1]);ctx.lineTo(brightPts[i+2],brightPts[i+3]);}
+      ctx.strokeStyle='rgba(0,229,160,0.13)';ctx.lineWidth=0.5;ctx.stroke();
     }
 
     // Arrow pebbles
@@ -875,7 +880,7 @@ const revObs = new IntersectionObserver(entries => {
       revObs.unobserve(e.target);
     }
   });
-}, {threshold: 0.12, rootMargin: '0px 0px -48px 0px'});
+}, {threshold: 0, rootMargin: '0px 0px 0px 0px'});
 allReveal.forEach(el => revObs.observe(el));
 
 // Case list items — staggered slide in
