@@ -131,41 +131,63 @@ nav.sc{border-color:var(--bd);}
 .ssub{font-size:18px;color:var(--m2);line-height:1.7;max-width:540px;}
 
 /* ── SCROLL REVEAL SYSTEM ── */
-/* Base: fade + rise */
-.rv{opacity:0;transform:translateY(44px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
-.rv.vis{opacity:1;transform:translateY(0);}
+/* Keyframes shared by both paths */
+@keyframes rv-rise{from{opacity:0;transform:translateY(44px);}to{opacity:1;transform:none;}}
+@keyframes rv-left{from{opacity:0;transform:translateX(-32px);}to{opacity:1;transform:none;}}
+@keyframes rv-headline{from{opacity:0;transform:translateY(50px) scale(.88);}to{opacity:1;transform:none;}}
+@keyframes rv-card{from{opacity:0;transform:translateY(60px) scale(.92);}to{opacity:1;transform:none;}}
+@keyframes rv-stat{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:none;}}
+@keyframes rv-xleft{from{opacity:0;transform:translateX(-56px);}to{opacity:1;transform:none;}}
+@keyframes rv-xright{from{opacity:0;transform:translateX(56px);}to{opacity:1;transform:none;}}
+@keyframes rv-scan{from{width:0;}to{width:100%;}}
 
-/* Eyebrow: scan in from left with green line */
-.rv-eye{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s cubic-bezier(.23,1,.32,1);}
-.rv-eye.vis{opacity:1;transform:translateX(0);}
+/* Base hidden states — always applied */
+.rv{opacity:0;transform:translateY(44px);}
+.rv-eye{opacity:0;transform:translateX(-32px);}
+.rv-h{opacity:0;transform:translateY(50px) scale(.88);}
+.rv-card{opacity:0;transform:translateY(60px) scale(.92);}
+.rv-stat{opacity:0;transform:translateY(40px);}
+.rv-left{opacity:0;transform:translateX(-56px);}
+.rv-right{opacity:0;transform:translateX(56px);}
+.scan-line{width:0;height:1px;background:linear-gradient(to right,var(--g),transparent);margin-bottom:48px;}
 
-/* Headline: scale up + rise (transform is composited — no paint cost) */
-.rv-h{opacity:0;transform:translateY(50px) scale(.88);transition:opacity 1s cubic-bezier(.23,1,.32,1),transform 1s cubic-bezier(.23,1,.32,1);}
-.rv-h.vis{opacity:1;transform:translateY(0) scale(1);}
+/* ── PATH A: CSS Scroll-driven animations (Chrome/Edge 115+) ──
+   Animation progress = scroll position. Feels like scroll IS the animation.
+   fill:both keeps element visible after it's scrolled past (no re-animation). */
+@supports (animation-timeline: view()) {
+  .rv    {animation:rv-rise     1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 35%;}
+  .rv-eye{animation:rv-left     1ms ease                      both;animation-timeline:view();animation-range:entry 0% entry 30%;}
+  .rv-h  {animation:rv-headline 1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 40%;}
+  .rv-card{animation:rv-card    1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 42%;}
+  .rv-stat{animation:rv-stat    1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 32%;}
+  .rv-left{animation:rv-xleft   1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 35%;}
+  .rv-right{animation:rv-xright 1ms cubic-bezier(.23,1,.32,1) both;animation-timeline:view();animation-range:entry 0% entry 35%;}
+  .scan-line{animation:rv-scan  1ms linear                    both;animation-timeline:view();animation-range:entry 0% entry 50%;}
+  /* Stagger: each d-class starts later in the element's entry phase */
+  .d1{animation-range:entry  0% entry 38%;}
+  .d2{animation-range:entry  7% entry 45%;}
+  .d3{animation-range:entry 14% entry 52%;}
+  .d4{animation-range:entry 21% entry 59%;}
+  .d5{animation-range:entry 28% entry 66%;}
+  .d6{animation-range:entry 35% entry 73%;}
+}
 
-/* Cards: scale + rise */
-.rv-card{opacity:0;transform:translateY(60px) scale(.92);transition:opacity .85s cubic-bezier(.23,1,.32,1),transform .85s cubic-bezier(.23,1,.32,1);}
-.rv-card.vis{opacity:1;transform:translateY(0) scale(1);}
-
-/* Stats: slide up + number glow */
-.rv-stat{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
-.rv-stat.vis{opacity:1;transform:translateY(0);}
-
-/* Left slide */
-.rv-left{opacity:0;transform:translateX(-56px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
-.rv-left.vis{opacity:1;transform:translateX(0);}
-
-/* Right slide */
-.rv-right{opacity:0;transform:translateX(56px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1);}
-.rv-right.vis{opacity:1;transform:translateX(0);}
-
-/* Stagger delays */
-.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
-.d4{transition-delay:.32s;}.d5{transition-delay:.40s;}.d6{transition-delay:.48s;}
-
-/* Section scan line — robotic divider that draws on entry */
-.scan-line{width:0;height:1px;background:linear-gradient(to right,var(--g),transparent);margin-bottom:48px;transition:width 1.1s cubic-bezier(.23,1,.32,1);}
-.scan-line.vis{width:100%;}
+/* ── PATH B: Transition fallback (Firefox, Safari) ──
+   JS scroll handler adds .vis once; removed from tracking array so never re-animates. */
+@supports not (animation-timeline: view()) {
+  .rv    {transition:opacity .65s cubic-bezier(.23,1,.32,1),transform .65s cubic-bezier(.23,1,.32,1);}
+  .rv-eye{transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1);}
+  .rv-h  {transition:opacity .75s cubic-bezier(.23,1,.32,1),transform .75s cubic-bezier(.23,1,.32,1);}
+  .rv-card{transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1);}
+  .rv-stat{transition:opacity .5s cubic-bezier(.23,1,.32,1),transform .5s cubic-bezier(.23,1,.32,1);}
+  .rv-left{transition:opacity .65s cubic-bezier(.23,1,.32,1),transform .65s cubic-bezier(.23,1,.32,1);}
+  .rv-right{transition:opacity .65s cubic-bezier(.23,1,.32,1),transform .65s cubic-bezier(.23,1,.32,1);}
+  .scan-line{transition:width .9s cubic-bezier(.23,1,.32,1);}
+  .rv.vis,.rv-eye.vis,.rv-h.vis,.rv-card.vis,.rv-stat.vis,.rv-left.vis,.rv-right.vis{opacity:1;transform:none;}
+  .scan-line.vis{width:100%;}
+  .d1{transition-delay:.05s;}.d2{transition-delay:.12s;}.d3{transition-delay:.19s;}
+  .d4{transition-delay:.26s;}.d5{transition-delay:.33s;}.d6{transition-delay:.40s;}
+}
 
 /* Robotic corner brackets on cards */
 .bracket-card{position:relative;}
@@ -870,18 +892,26 @@ document.querySelectorAll('a,button,.scard,.cfeat,.cmini,.aicard,.wco').forEach(
 window.addEventListener('scroll',()=>document.getElementById('mnav').classList.toggle('sc',scrollY>40));
 
 // ══════════════════════════════════════════════════════
-//  SCROLL REVEAL — multiple animation types
+//  SCROLL REVEAL
+//  Chrome/Edge 115+: CSS animation-timeline:view() handles it — no JS.
+//  Firefox/Safari fallback: scroll handler + array splice so elements
+//  are revealed once and never re-checked/re-animated.
 // ══════════════════════════════════════════════════════
-const allReveal = document.querySelectorAll('.rv,.rv-eye,.rv-h,.rv-card,.rv-stat,.rv-left,.rv-right,.scan-line');
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('vis');
-      revObs.unobserve(e.target);
+if (!CSS.supports('animation-timeline: view()')) {
+  const pending = Array.from(document.querySelectorAll('.rv,.rv-eye,.rv-h,.rv-card,.rv-stat,.rv-left,.rv-right,.scan-line'));
+  function checkReveal() {
+    const vh = window.innerHeight;
+    for (let i = pending.length - 1; i >= 0; i--) {
+      if (pending[i].getBoundingClientRect().top < vh * 0.95) {
+        pending[i].classList.add('vis');
+        pending.splice(i, 1);
+      }
     }
-  });
-}, {threshold: 0, rootMargin: '0px 0px 0px 0px'});
-allReveal.forEach(el => revObs.observe(el));
+  }
+  window.addEventListener('scroll', checkReveal, {passive:true});
+  window.addEventListener('resize', checkReveal, {passive:true});
+  checkReveal();
+}
 
 // Case list items — staggered slide in
 const caseList = document.querySelectorAll('#case-list li');
