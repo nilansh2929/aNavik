@@ -267,11 +267,11 @@ nav.sc{border-color:var(--bd);}
 .chline{font-family:'Space Grotesk',sans-serif;font-size:clamp(52px,8vw,92px);font-weight:700;letter-spacing:-2.5px;line-height:.96;margin-bottom:22px;}
 .chline span{color:var(--g);}
 .csub{font-size:18px;color:var(--m2);line-height:1.65;margin-bottom:44px;}
-.cform{display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:28px;background:#0d0e16;border:1px solid rgba(255,255,255,0.14);border-radius:24px;padding:36px 40px;}
-.flbl{font-family:'DM Mono',monospace;font-size:10px;color:#a0a0bc;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px;display:block;}
-.finp,.ftxt{background:#111218;border:1.5px solid rgba(255,255,255,0.14);border-radius:10px;padding:14px 18px;color:#EEEEF5;font-family:'Inter',sans-serif;font-size:15px;outline:none;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;}
-.finp::placeholder,.ftxt::placeholder{color:#3e3e58;}
-.finp:focus,.ftxt:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,229,160,0.09);background:#13141c;}
+.cform{display:flex;flex-direction:column;gap:16px;text-align:left;margin-bottom:28px;background:#12141f;border:1px solid rgba(255,255,255,0.22);border-radius:24px;padding:36px 40px;box-shadow:0 0 0 1px rgba(0,229,160,0.05),0 32px 72px rgba(0,0,0,0.5);}
+.flbl{font-family:'DM Mono',monospace;font-size:10px;color:#b0b0cc;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px;display:block;}
+.finp,.ftxt{background:#1c1e2e;border:1.5px solid rgba(255,255,255,0.22);border-radius:10px;padding:14px 18px;color:#ffffff;font-family:'Inter',sans-serif;font-size:15px;outline:none;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;}
+.finp::placeholder,.ftxt::placeholder{color:#4a4a6a;}
+.finp:focus,.ftxt:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,229,160,0.12);background:#20223a;}
 .ftxt{resize:vertical;min-height:120px;}
 .fsub{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;background:var(--g);color:#08090d;border:none;border-radius:10px;padding:17px;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s;}
 .fsub::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);transform:translateX(-100%);transition:transform .55s;}
@@ -644,6 +644,7 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
         <div><label class="flbl">Your name</label><input class="finp" id="f-name" type="text" placeholder="Firstname Lastname" required></div>
         <div><label class="flbl">Email</label><input class="finp" id="f-email" type="email" placeholder="you@company.com" required></div>
         <div><label class="flbl">Company / Website</label><input class="finp" id="f-co" type="text" placeholder="yourcompany.com (optional)"></div>
+        <div><label class="flbl">WhatsApp Number <span style="color:#4a4a6a;font-size:9px;letter-spacing:.1em;">OPTIONAL</span></label><input class="finp" id="f-wa" type="tel" placeholder="+1 234 567 8900"></div>
         <div><label class="flbl">What are you working on?</label><textarea class="ftxt" id="f-msg" placeholder="Tell us about the challenge, the scale, and what you've tried so far..." required></textarea></div>
         <button type="submit" class="fsub" id="fsub-btn">Send signal →</button>
         <div id="form-status" style="display:none;font-family:'DM Mono',monospace;font-size:12px;color:var(--g);text-align:center;padding:14px;border:1px solid rgba(0,229,160,0.3);border-radius:10px;background:#0a1a12;"></div>
@@ -920,10 +921,12 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   e.preventDefault();
   const btn=document.getElementById('fsub-btn'), status=document.getElementById('form-status');
   btn.textContent='Sending…'; btn.disabled=true;
+  const wa = document.getElementById('f-wa').value;
   const payload={
     name: document.getElementById('f-name').value,
     email: document.getElementById('f-email').value,
     company: document.getElementById('f-co').value,
+    whatsapp: wa || '—',
     message: document.getElementById('f-msg').value,
     _subject: `New lead — navik.io — ${document.getElementById('f-name').value}`,
   };
