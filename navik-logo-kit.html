@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navik — Logo Download Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0a0a0f;color:#eeeef5;font-family:'Inter',sans-serif;padding:0;}
+
+.page-header{padding:56px 64px 40px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.page-header h1{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;letter-spacing:-.5px;margin-bottom:6px;}
+.page-header h1 span{color:#00E5A0;}
+.page-header p{font-size:13px;color:#6B6B82;}
+
+.section{padding:52px 64px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.section-title{font-family:'DM Mono',monospace;font-size:10px;color:#6B6B82;letter-spacing:.2em;text-transform:uppercase;margin-bottom:36px;display:flex;align-items:center;gap:12px;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.05);}
+
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.logo-card{background:#0f1015;border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;}
+.logo-card-preview{padding:48px 32px;display:flex;align-items:center;justify-content:center;min-height:160px;position:relative;}
+.logo-card-preview.dark{background:#08090d;}
+.logo-card-preview.light{background:#f0f0f4;}
+.logo-card-preview.white{background:#ffffff;}
+.logo-card-preview.green-dark{background:#001a11;}
+.logo-card-footer{padding:14px 18px;border-top:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between;}
+.logo-card-name{font-family:'DM Mono',monospace;font-size:10px;color:#6B6B82;letter-spacing:.1em;}
+.dl-btn{font-family:'DM Mono',monospace;font-size:10px;color:#00E5A0;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);border-radius:6px;padding:5px 12px;cursor:pointer;letter-spacing:.06em;transition:background .2s,border-color .2s;text-decoration:none;}
+.dl-btn:hover{background:rgba(0,229,160,0.14);border-color:rgba(0,229,160,0.35);}
+
+/* Favicon row */
+.favicon-row{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;padding:8px 0;}
+.fav-item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.fav-bg{background:#0f1015;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:12px;display:flex;align-items:center;justify-content:center;}
+.fav-bg.light{background:#f0f0f4;}
+.fav-label{font-family:'DM Mono',monospace;font-size:9px;color:#6B6B82;letter-spacing:.1em;text-align:center;}
+.fav-dl{font-family:'DM Mono',monospace;font-size:9px;color:#00E5A0;background:rgba(0,229,160,0.07);border:1px solid rgba(0,229,160,0.18);border-radius:4px;padding:3px 9px;cursor:pointer;margin-top:2px;display:inline-block;}
+
+/* Browser mockup */
+.browser-mock{background:#1a1b24;border-radius:10px;padding:10px 14px 10px 10px;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;color:#888;border:1px solid rgba(255,255,255,0.06);}
+.browser-dots{display:flex;gap:5px;margin-right:4px;}
+.browser-dots span{width:8px;height:8px;border-radius:50%;background:#333;}
+.browser-dots span:first-child{background:#ff5f57;}
+.browser-dots span:nth-child(2){background:#febc2e;}
+.browser-dots span:last-child{background:#28c840;}
+
+/* Colors */
+.color-swatches{display:flex;gap:14px;flex-wrap:wrap;}
+.swatch{display:flex;flex-direction:column;gap:8px;}
+.swatch-block{width:88px;height:56px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);}
+.swatch-name{font-size:11px;color:#eeeef5;font-weight:500;}
+.swatch-hex{font-family:'DM Mono',monospace;font-size:10px;color:#6B6B82;}
+
+/* Download all button */
+.dl-all{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#08090d;background:#00E5A0;border:none;border-radius:100px;padding:12px 28px;cursor:pointer;transition:transform .2s,box-shadow .3s;}
+.dl-all:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,229,160,0.4);}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1><span>Navik</span> — Logo Kit</h1>
+  <p>All logo variants · Right-click any logo → Save image, or use the SVG download buttons</p>
+</div>
+
+<!-- ══ HORIZONTAL LOGO ══ -->
+<div class="section">
+  <div class="section-title">01 · Horizontal Logo (Primary)</div>
+  <div class="logo-grid">
+
+    <!-- Dark -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg id="h-dark" width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="30" r="5" fill="#00E5A0"/>
+          <path d="M 10 44 Q 22 14 34 44" fill="none" stroke="#00E5A0" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 3 51 Q 22 6 41 51" fill="none" stroke="#00E5A0" stroke-width="1.7" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -3 56 Q 22 0 47 56" fill="none" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round" opacity="0.2"/>
+          <text x="58" y="39" font-family="Space Grotesk, sans-serif" font-size="32" font-weight="600" fill="#EEEEF5" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Horizontal · Dark BG</span>
+        <a class="dl-btn" onclick="downloadSVG('h-dark','navik-horizontal-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Light -->
+    <div class="logo-card">
+      <div class="logo-card-preview light">
+        <svg id="h-light" width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="30" r="5" fill="#00956A"/>
+          <path d="M 10 44 Q 22 14 34 44" fill="none" stroke="#00956A" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 3 51 Q 22 6 41 51" fill="none" stroke="#00956A" stroke-width="1.7" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -3 56 Q 22 0 47 56" fill="none" stroke="#00956A" stroke-width="1.3" stroke-linecap="round" opacity="0.2"/>
+          <text x="58" y="39" font-family="Space Grotesk, sans-serif" font-size="32" font-weight="600" fill="#0A0A0F" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Horizontal · Light BG</span>
+        <a class="dl-btn" onclick="downloadSVG('h-light','navik-horizontal-light')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- White -->
+    <div class="logo-card">
+      <div class="logo-card-preview white">
+        <svg id="h-white" width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="30" r="5" fill="#00956A"/>
+          <path d="M 10 44 Q 22 14 34 44" fill="none" stroke="#00956A" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 3 51 Q 22 6 41 51" fill="none" stroke="#00956A" stroke-width="1.7" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -3 56 Q 22 0 47 56" fill="none" stroke="#00956A" stroke-width="1.3" stroke-linecap="round" opacity="0.2"/>
+          <text x="58" y="39" font-family="Space Grotesk, sans-serif" font-size="32" font-weight="600" fill="#0A0A0F" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Horizontal · White BG</span>
+        <a class="dl-btn" onclick="downloadSVG('h-white','navik-horizontal-white')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Green dark -->
+    <div class="logo-card">
+      <div class="logo-card-preview green-dark">
+        <svg id="h-gdark" width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="30" r="5" fill="#00E5A0"/>
+          <path d="M 10 44 Q 22 14 34 44" fill="none" stroke="#00E5A0" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 3 51 Q 22 6 41 51" fill="none" stroke="#00E5A0" stroke-width="1.7" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -3 56 Q 22 0 47 56" fill="none" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round" opacity="0.2"/>
+          <text x="58" y="39" font-family="Space Grotesk, sans-serif" font-size="32" font-weight="600" fill="#e0fff5" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Horizontal · Green Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('h-gdark','navik-horizontal-green-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- With tagline dark -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg id="h-tagline" width="240" height="62" viewBox="0 0 240 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="26" r="4.5" fill="#00E5A0"/>
+          <path d="M 11 38 Q 22 12 33 38" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 4 44 Q 22 5 40 44" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -2 49 Q 22 0 46 49" fill="none" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
+          <text x="56" y="32" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="600" fill="#EEEEF5" letter-spacing="-0.6">navik</text>
+          <line x1="56" y1="40" x2="200" y2="40" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="56" y="54" font-family="DM Mono, monospace" font-size="8" font-weight="400" fill="#6B6B82" letter-spacing="2">AI · DATA · SYSTEMS</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">With Tagline · Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('h-tagline','navik-tagline-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- With tagline light -->
+    <div class="logo-card">
+      <div class="logo-card-preview light">
+        <svg id="h-tagline-l" width="240" height="62" viewBox="0 0 240 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="26" r="4.5" fill="#00956A"/>
+          <path d="M 11 38 Q 22 12 33 38" fill="none" stroke="#00956A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 4 44 Q 22 5 40 44" fill="none" stroke="#00956A" stroke-width="1.5" stroke-linecap="round" opacity="0.48"/>
+          <path d="M -2 49 Q 22 0 46 49" fill="none" stroke="#00956A" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
+          <text x="56" y="32" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="600" fill="#0A0A0F" letter-spacing="-0.6">navik</text>
+          <line x1="56" y1="40" x2="200" y2="40" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+          <text x="56" y="54" font-family="DM Mono, monospace" font-size="8" font-weight="400" fill="#9999B0" letter-spacing="2">AI · DATA · SYSTEMS</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">With Tagline · Light</span>
+        <a class="dl-btn" onclick="downloadSVG('h-tagline-l','navik-tagline-light')">↓ SVG</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ STACKED / VERTICAL ══ -->
+<div class="section">
+  <div class="section-title">02 · Stacked Logo (Vertical)</div>
+  <div class="logo-grid">
+
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:40px;">
+        <svg id="v-dark" width="130" height="106" viewBox="0 0 130 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="65" cy="38" r="7" fill="#00E5A0"/>
+          <path d="M 46 60 Q 65 14 84 60" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 36 68 Q 65 4 94 68" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 26 75 Q 65 -3 104 75" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="65" y="96" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="600" fill="#EEEEF5" letter-spacing="3.5" text-anchor="middle">NAVIK</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Stacked · Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('v-dark','navik-stacked-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="logo-card-preview light" style="padding:40px;">
+        <svg id="v-light" width="130" height="106" viewBox="0 0 130 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="65" cy="38" r="7" fill="#00956A"/>
+          <path d="M 46 60 Q 65 14 84 60" fill="none" stroke="#00956A" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 36 68 Q 65 4 94 68" fill="none" stroke="#00956A" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 26 75 Q 65 -3 104 75" fill="none" stroke="#00956A" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="65" y="96" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="600" fill="#0A0A0F" letter-spacing="3.5" text-anchor="middle">NAVIK</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Stacked · Light</span>
+        <a class="dl-btn" onclick="downloadSVG('v-light','navik-stacked-light')">↓ SVG</a>
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:32px;">
+        <svg id="v-tagline" width="160" height="118" viewBox="0 0 160 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="36" r="7" fill="#00E5A0"/>
+          <path d="M 61 58 Q 80 12 99 58" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 51 66 Q 80 2 109 66" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 41 73 Q 80 -4 119 73" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="80" y="94" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="600" fill="#EEEEF5" letter-spacing="3.5" text-anchor="middle">NAVIK</text>
+          <line x1="30" y1="102" x2="130" y2="102" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="80" y="115" font-family="DM Mono, monospace" font-size="7.5" fill="#6B6B82" letter-spacing="2.5" text-anchor="middle">Navigate with clarity.</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Stacked · With Tagline</span>
+        <a class="dl-btn" onclick="downloadSVG('v-tagline','navik-stacked-tagline')">↓ SVG</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CIRCLE / BADGE LOGOS ══ -->
+<div class="section">
+  <div class="section-title">03 · Circle & Badge Logos</div>
+  <div class="logo-grid">
+
+    <!-- Circle dark -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg id="circle-dark" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="#0F1015" stroke="rgba(0,229,160,0.18)" stroke-width="1.5"/>
+          <circle cx="60" cy="62" r="7" fill="#00E5A0"/>
+          <path d="M 39 80 Q 60 30 81 80" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 28 88 Q 60 18 92 88" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 17 96 Q 60 6 103 96" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="60" y="108" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#EEEEF5" letter-spacing="2.5" text-anchor="middle">NAVIK</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Circle · Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('circle-dark','navik-circle-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Circle green -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg id="circle-green" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="rgba(0,229,160,0.1)" stroke="#00E5A0" stroke-width="1.5"/>
+          <circle cx="60" cy="62" r="7" fill="#00E5A0"/>
+          <path d="M 39 80 Q 60 30 81 80" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 28 88 Q 60 18 92 88" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <path d="M 17 96 Q 60 6 103 96" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.22"/>
+          <text x="60" y="108" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#EEEEF5" letter-spacing="2.5" text-anchor="middle">NAVIK</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Circle · Green Ring</span>
+        <a class="dl-btn" onclick="downloadSVG('circle-green','navik-circle-green')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Circle light -->
+    <div class="logo-card">
+      <div class="logo-card-preview light">
+        <svg id="circle-light" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="#ffffff" stroke="rgba(0,149,106,0.25)" stroke-width="1.5"/>
+          <circle cx="60" cy="62" r="7" fill="#00956A"/>
+          <path d="M 39 80 Q 60 30 81 80" fill="none" stroke="#00956A" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 28 88 Q 60 18 92 88" fill="none" stroke="#00956A" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 17 96 Q 60 6 103 96" fill="none" stroke="#00956A" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="60" y="108" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#0A0A0F" letter-spacing="2.5" text-anchor="middle">NAVIK</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Circle · Light / White</span>
+        <a class="dl-btn" onclick="downloadSVG('circle-light','navik-circle-light')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Badge / pill -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg id="badge" width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="60" rx="30" fill="#0F1015" stroke="rgba(0,229,160,0.2)" stroke-width="1.5"/>
+          <circle cx="36" cy="30" r="5" fill="#00E5A0"/>
+          <path d="M 24 43 Q 36 12 48 43" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 17 49 Q 36 5 55 49" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.44"/>
+          <path d="M 10 54 Q 36 0 62 54" fill="none" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round" opacity="0.18"/>
+          <text x="76" y="36" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="600" fill="#EEEEF5" letter-spacing="1">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Badge / Pill · Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('badge','navik-badge-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Badge light -->
+    <div class="logo-card">
+      <div class="logo-card-preview light">
+        <svg id="badge-light" width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="60" rx="30" fill="#ffffff" stroke="rgba(0,149,106,0.25)" stroke-width="1.5"/>
+          <circle cx="36" cy="30" r="5" fill="#00956A"/>
+          <path d="M 24 43 Q 36 12 48 43" fill="none" stroke="#00956A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 17 49 Q 36 5 55 49" fill="none" stroke="#00956A" stroke-width="1.5" stroke-linecap="round" opacity="0.44"/>
+          <path d="M 10 54 Q 36 0 62 54" fill="none" stroke="#00956A" stroke-width="1.2" stroke-linecap="round" opacity="0.18"/>
+          <text x="76" y="36" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="600" fill="#0A0A0F" letter-spacing="1">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Badge / Pill · Light</span>
+        <a class="dl-btn" onclick="downloadSVG('badge-light','navik-badge-light')">↓ SVG</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ ICON MARK ONLY ══ -->
+<div class="section">
+  <div class="section-title">04 · Icon Mark Only (Square App Icons)</div>
+  <div class="logo-grid">
+
+    <!-- 1024 -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:32px;">
+        <svg id="icon-1024" width="140" height="140" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1024" height="1024" rx="220" fill="#0F1015"/>
+          <circle cx="512" cy="560" r="80" fill="#00E5A0"/>
+          <path d="M 220 780 Q 512 200 804 780" fill="none" stroke="#00E5A0" stroke-width="65" stroke-linecap="round"/>
+          <path d="M 100 870 Q 512 80 924 870" fill="none" stroke="#00E5A0" stroke-width="48" stroke-linecap="round" opacity="0.46"/>
+          <path d="M -20 950 Q 512 -20 1044 950" fill="none" stroke="#00E5A0" stroke-width="36" stroke-linecap="round" opacity="0.19"/>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">App Icon 1024×1024</span>
+        <a class="dl-btn" onclick="downloadSVG('icon-1024','navik-icon-1024')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- 512 -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:32px;">
+        <svg id="icon-512" width="120" height="120" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="512" height="512" rx="110" fill="#0F1015"/>
+          <circle cx="256" cy="280" r="40" fill="#00E5A0"/>
+          <path d="M 110 390 Q 256 100 402 390" fill="none" stroke="#00E5A0" stroke-width="32" stroke-linecap="round"/>
+          <path d="M 50 435 Q 256 40 462 435" fill="none" stroke="#00E5A0" stroke-width="24" stroke-linecap="round" opacity="0.46"/>
+          <path d="M -10 475 Q 256 -10 522 475" fill="none" stroke="#00E5A0" stroke-width="18" stroke-linecap="round" opacity="0.19"/>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">App Icon 512×512</span>
+        <a class="dl-btn" onclick="downloadSVG('icon-512','navik-icon-512')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- 256 round -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:32px;">
+        <svg id="icon-256r" width="110" height="110" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="128" cy="128" r="128" fill="#0F1015"/>
+          <circle cx="128" cy="140" r="20" fill="#00E5A0"/>
+          <path d="M 55 195 Q 128 50 201 195" fill="none" stroke="#00E5A0" stroke-width="16" stroke-linecap="round"/>
+          <path d="M 25 218 Q 128 18 231 218" fill="none" stroke="#00E5A0" stroke-width="12" stroke-linecap="round" opacity="0.46"/>
+          <path d="M -5 238 Q 128 -5 261 238" fill="none" stroke="#00E5A0" stroke-width="9" stroke-linecap="round" opacity="0.19"/>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Round Icon 256×256</span>
+        <a class="dl-btn" onclick="downloadSVG('icon-256r','navik-icon-256-round')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Icon only flat (no bg) -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:32px;">
+        <svg id="icon-flat" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="55" r="10" fill="#00E5A0"/>
+          <path d="M 18 80 Q 50 16 82 80" fill="none" stroke="#00E5A0" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 4 90 Q 50 4 96 90" fill="none" stroke="#00E5A0" stroke-width="4.5" stroke-linecap="round" opacity="0.46"/>
+          <path d="M -8 99 Q 50 -6 108 99" fill="none" stroke="#00E5A0" stroke-width="3.5" stroke-linecap="round" opacity="0.19"/>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Icon Mark · No BG</span>
+        <a class="dl-btn" onclick="downloadSVG('icon-flat','navik-icon-flat')">↓ SVG</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FAVICONS ══ -->
+<div class="section">
+  <div class="section-title">05 · Favicons — All Sizes</div>
+  <div class="favicon-row">
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-64" width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="13" fill="#0F1015"/>
+          <circle cx="32" cy="36" r="5" fill="#00E5A0"/>
+          <path d="M 14 52 Q 32 14 50 52" fill="none" stroke="#00E5A0" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 5 59 Q 32 5 59 59" fill="none" stroke="#00E5A0" stroke-width="2.2" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+      </div>
+      <div class="fav-label">64×64</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-64','navik-favicon-64')">↓ SVG</a>
+    </div>
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-48" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="10" fill="#0F1015"/>
+          <circle cx="24" cy="27" r="4" fill="#00E5A0"/>
+          <path d="M 10 39 Q 24 10 38 39" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 3 44 Q 24 3 45 44" fill="none" stroke="#00E5A0" stroke-width="1.8" stroke-linecap="round" opacity="0.44"/>
+        </svg>
+      </div>
+      <div class="fav-label">48×48</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-48','navik-favicon-48')">↓ SVG</a>
+    </div>
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-32" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0F1015"/>
+          <circle cx="16" cy="18" r="3" fill="#00E5A0"/>
+          <path d="M 6 26 Q 16 6 26 26" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 1 30 Q 16 1 31 30" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.42"/>
+        </svg>
+      </div>
+      <div class="fav-label">32×32</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-32','navik-favicon-32')">↓ SVG</a>
+    </div>
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-24" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="5" fill="#0F1015"/>
+          <circle cx="12" cy="14" r="2.5" fill="#00E5A0"/>
+          <path d="M 4 20 Q 12 4 20 20" fill="none" stroke="#00E5A0" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 1 23 Q 12 1 23 23" fill="none" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="fav-label">24×24</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-24','navik-favicon-24')">↓ SVG</a>
+    </div>
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-16" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect width="16" height="16" rx="3" fill="#0F1015"/>
+          <circle cx="8" cy="10" r="2" fill="#00E5A0"/>
+          <path d="M 2 14 Q 8 3 14 14" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="fav-label">16×16<br>Favicon</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-16','navik-favicon-16')">↓ SVG</a>
+    </div>
+
+    <!-- Round favicons -->
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-64r" width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#0F1015"/>
+          <circle cx="32" cy="36" r="5" fill="#00E5A0"/>
+          <path d="M 14 52 Q 32 14 50 52" fill="none" stroke="#00E5A0" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 5 59 Q 32 5 59 59" fill="none" stroke="#00E5A0" stroke-width="2.2" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+      </div>
+      <div class="fav-label">64×64<br>Round</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-64r','navik-favicon-64-round')">↓ SVG</a>
+    </div>
+
+    <div class="fav-item">
+      <div class="fav-bg">
+        <svg id="fav-32r" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="16" fill="#0F1015"/>
+          <circle cx="16" cy="18" r="3" fill="#00E5A0"/>
+          <path d="M 6 26 Q 16 6 26 26" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 1 30 Q 16 1 31 30" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.42"/>
+        </svg>
+      </div>
+      <div class="fav-label">32×32<br>Round</div>
+      <a class="fav-dl" onclick="downloadSVG('fav-32r','navik-favicon-32-round')">↓ SVG</a>
+    </div>
+
+    <!-- Browser tab preview -->
+    <div class="fav-item" style="margin-left:24px;">
+      <div class="browser-mock">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect width="16" height="16" rx="3" fill="#0F1015"/>
+          <circle cx="8" cy="10" r="2" fill="#00E5A0"/>
+          <path d="M 2 14 Q 8 3 14 14" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>navik.io</span>
+      </div>
+      <div class="fav-label" style="margin-top:10px;">Browser tab preview</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ EMAIL / SOCIAL ══ -->
+<div class="section">
+  <div class="section-title">06 · Email Signature & Social</div>
+  <div class="logo-grid">
+
+    <!-- Email sig -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:28px;align-items:flex-start;">
+        <div style="background:#1a1b2e;border-radius:10px;padding:16px 20px;border-left:3px solid #00E5A0;min-width:220px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#eeeef5;margin-bottom:2px;">Nilansh Arora</div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:#9999B0;margin-bottom:12px;">Founder · AI & Technology Consulting</div>
+          <svg id="sig-logo" width="90" height="22" viewBox="0 0 90 22" fill="none">
+            <circle cx="8" cy="11" r="3" fill="#00E5A0"/>
+            <path d="M 2 18 Q 8 3 14 18" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M -1 21 Q 8 0 17 21" fill="none" stroke="#00E5A0" stroke-width="1.1" stroke-linecap="round" opacity="0.44"/>
+            <text x="22" y="15" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#eeeef5" letter-spacing="0.5">navik</text>
+          </svg>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:#6B6B82;margin-top:6px;letter-spacing:0.06em;">navik.io · hello@navik.io</div>
+        </div>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Email Signature Logo</span>
+        <a class="dl-btn" onclick="downloadSVG('sig-logo','navik-email-sig')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- LinkedIn banner mark -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:24px;">
+        <svg id="li-mark" width="180" height="68" viewBox="0 0 180 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="68" rx="8" fill="#0f1015" stroke="rgba(0,229,160,0.12)" stroke-width="1"/>
+          <circle cx="32" cy="34" r="6.5" fill="#00E5A0"/>
+          <path d="M 16 52 Q 32 10 48 52" fill="none" stroke="#00E5A0" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 8 60 Q 32 4 56 60" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round" opacity="0.44"/>
+          <path d="M 0 67 Q 32 -2 64 67" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+          <text x="74" y="40" font-family="Space Grotesk, sans-serif" font-size="26" font-weight="600" fill="#eeeef5" letter-spacing="-0.5">navik</text>
+          <text x="74" y="54" font-family="DM Mono, monospace" font-size="8" fill="#6B6B82" letter-spacing="1.5">navik.io</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">LinkedIn / Social Card</span>
+        <a class="dl-btn" onclick="downloadSVG('li-mark','navik-social-card')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Wordmark only -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark" style="padding:40px;">
+        <svg id="wordmark" width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="22" r="5" fill="#00E5A0"/>
+          <path d="M 4 34 Q 14 8 24 34" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M -1 39 Q 14 2 29 39" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+          <path d="M -5 43 Q 14 -2 33 43" fill="none" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round" opacity="0.18"/>
+          <text x="40" y="30" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#eeeef5" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Wordmark Only · Dark</span>
+        <a class="dl-btn" onclick="downloadSVG('wordmark','navik-wordmark-dark')">↓ SVG</a>
+      </div>
+    </div>
+
+    <!-- Wordmark light -->
+    <div class="logo-card">
+      <div class="logo-card-preview white" style="padding:40px;">
+        <svg id="wordmark-l" width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="22" r="5" fill="#00956A"/>
+          <path d="M 4 34 Q 14 8 24 34" fill="none" stroke="#00956A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M -1 39 Q 14 2 29 39" fill="none" stroke="#00956A" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+          <path d="M -5 43 Q 14 -2 33 43" fill="none" stroke="#00956A" stroke-width="1.2" stroke-linecap="round" opacity="0.18"/>
+          <text x="40" y="30" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0A0F" letter-spacing="-0.8">navik</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-name">Wordmark Only · Light</span>
+        <a class="dl-btn" onclick="downloadSVG('wordmark-l','navik-wordmark-light')">↓ SVG</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ BRAND COLOURS ══ -->
+<div class="section">
+  <div class="section-title">07 · Brand Colours</div>
+  <div class="color-swatches">
+    <div class="swatch"><div class="swatch-block" style="background:#00E5A0;border-color:rgba(0,229,160,0.3);"></div><div class="swatch-name">Signal Green</div><div class="swatch-hex">#00E5A0</div><div class="swatch-hex" style="color:#555">Primary · on dark</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#00956A;"></div><div class="swatch-name">Deep Green</div><div class="swatch-hex">#00956A</div><div class="swatch-hex" style="color:#555">Primary · on light</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#08090d;"></div><div class="swatch-name">Void</div><div class="swatch-hex">#08090D</div><div class="swatch-hex" style="color:#555">Page background</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#0f1015;border-color:rgba(255,255,255,0.07);"></div><div class="swatch-name">Surface</div><div class="swatch-hex">#0F1015</div><div class="swatch-hex" style="color:#555">Cards / panels</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#eeeef5;"></div><div class="swatch-name">Off-White</div><div class="swatch-hex">#EEEEF5</div><div class="swatch-hex" style="color:#555">Body text</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#f0f0f4;"></div><div class="swatch-name">Paper</div><div class="swatch-hex">#F0F0F4</div><div class="swatch-hex" style="color:#555">Light background</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#6B6B82;"></div><div class="swatch-name">Muted</div><div class="swatch-hex">#6B6B82</div><div class="swatch-hex" style="color:#555">Secondary text</div></div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div style="padding:40px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,0.05);">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;color:#6B6B82;letter-spacing:.06em;">Navik Brand Kit · v1.0 · 2026 · navik.io</div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;color:#6B6B82;letter-spacing:.06em;">Typefaces: Space Grotesk · Inter · DM Mono</div>
+</div>
+
+<script>
+function downloadSVG(id, filename) {
+  const svgEl = document.getElementById(id);
+  if (!svgEl) return;
+  const clone = svgEl.cloneNode(true);
+  // Add XML namespace
+  clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  // Embed font style for standalone use
+  const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+  style.textContent = "@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=DM+Mono:wght@400;500&display=swap');";
+  clone.insertBefore(style, clone.firstChild);
+  const svgData = new XMLSerializer().serializeToString(clone);
+  const blob = new Blob([svgData], {type: 'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename + '.svg';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

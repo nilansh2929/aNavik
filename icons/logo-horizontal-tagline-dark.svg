@@ -1,0 +1,9 @@
+<svg width="240" height="62" viewBox="0 0 240 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="22" cy="26" r="4.5" fill="#00E5A0"/>
+  <path d="M 11 38 Q 22 12 33 38" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 4 44 Q 22 5 40 44" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.48"/>
+  <path d="M -2 49 Q 22 0 46 49" fill="none" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
+  <text x="56" y="32" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="600" fill="#EEEEF5" letter-spacing="-0.6">navik</text>
+  <line x1="56" y1="40" x2="200" y2="40" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="56" y="54" font-family="DM Mono, monospace" font-size="8" font-weight="400" fill="#6B6B82" letter-spacing="2">AI · DATA · SYSTEMS</text>
+</svg>

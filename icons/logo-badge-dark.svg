@@ -1,0 +1,8 @@
+<svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="60" rx="30" fill="#0F1015" stroke="rgba(0,229,160,0.2)" stroke-width="1.5"/>
+  <circle cx="36" cy="30" r="5" fill="#00E5A0"/>
+  <path d="M 24 43 Q 36 12 48 43" fill="none" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 17 49 Q 36 5 55 49" fill="none" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" opacity="0.44"/>
+  <path d="M 10 54 Q 36 0 62 54" fill="none" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round" opacity="0.18"/>
+  <text x="76" y="36" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="600" fill="#EEEEF5" letter-spacing="1">navik</text>
+</svg>
