@@ -263,19 +263,19 @@ nav.sc{border-color:var(--bd);}
 .ai-desc{font-size:15px;color:var(--m2);line-height:1.75;}
 
 /* CONTACT */
-#contact{background:var(--s1);position:relative;overflow:hidden;}
-.cglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;background:radial-gradient(ellipse at center,rgba(0,229,160,0.08) 0%,transparent 65%);pointer-events:none;}
-.cin{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:5;}
+#contact{background:var(--bg);position:relative;overflow:hidden;}
+.cglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;background:radial-gradient(ellipse at center,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+.cin{max-width:640px;margin:0 auto;text-align:center;position:relative;z-index:5;}
 .chline{font-family:'Space Grotesk',sans-serif;font-size:clamp(52px,8vw,92px);font-weight:700;letter-spacing:-2.5px;line-height:.96;margin-bottom:22px;}
 .chline span{color:var(--g);}
-.csub{font-size:18px;color:var(--m2);line-height:1.65;margin-bottom:56px;}
-.cform{display:flex;flex-direction:column;gap:16px;text-align:left;margin-bottom:36px;}
-.flbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--m);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;display:block;}
-.finp,.ftxt{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;color:var(--t);font-family:'Inter',sans-serif;font-size:15px;outline:none;width:100%;transition:border-color .25s,box-shadow .25s;}
-.finp::placeholder,.ftxt::placeholder{color:var(--m);}
-.finp:focus,.ftxt:focus{border-color:rgba(0,229,160,0.5);box-shadow:0 0 0 4px rgba(0,229,160,0.07);}
-.ftxt{resize:vertical;min-height:130px;}
-.fsub{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;background:var(--g);color:#08090d;border:none;border-radius:12px;padding:18px;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s;}
+.csub{font-size:18px;color:var(--m2);line-height:1.65;margin-bottom:44px;}
+.cform{display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:28px;background:#0d0e16;border:1px solid rgba(255,255,255,0.14);border-radius:24px;padding:36px 40px;}
+.flbl{font-family:'DM Mono',monospace;font-size:10px;color:#a0a0bc;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px;display:block;}
+.finp,.ftxt{background:#111218;border:1.5px solid rgba(255,255,255,0.14);border-radius:10px;padding:14px 18px;color:#EEEEF5;font-family:'Inter',sans-serif;font-size:15px;outline:none;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;}
+.finp::placeholder,.ftxt::placeholder{color:#3e3e58;}
+.finp:focus,.ftxt:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,229,160,0.09);background:#13141c;}
+.ftxt{resize:vertical;min-height:120px;}
+.fsub{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;background:var(--g);color:#08090d;border:none;border-radius:10px;padding:17px;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s;}
 .fsub::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);transform:translateX(-100%);transition:transform .55s;}
 .fsub:hover{transform:translateY(-2px);box-shadow:0 12px 48px rgba(0,229,160,0.4);}
 .fsub:hover::before{transform:translateX(100%);}
@@ -314,8 +314,8 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
 .mmenu a:hover{color:var(--t);}
 
 /* ENGAGEMENT TYPES */
-.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:44px;}
-.eng-card{background:rgba(255,255,255,0.02);border:1px solid var(--bd);border-radius:14px;padding:22px 20px;text-align:left;}
+.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px;}
+.eng-card{background:#0d0e16;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:22px 20px;text-align:left;}
 .eng-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--g);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;}
 .eng-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--t);margin-bottom:6px;letter-spacing:-.2px;}
 .eng-desc{font-size:13px;color:var(--m);line-height:1.6;}
@@ -349,7 +349,7 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
-  <a href="#contact" class="ncta">Let's talk →</a>
+  <a href="#contact-form" class="ncta">Let's talk →</a>
   <button class="hbg" id="hbg-btn" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -359,7 +359,7 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
   <a href="#services" class="mmenu-link">Services</a>
   <a href="#about" class="mmenu-link">About</a>
   <a href="#process" class="mmenu-link">Process</a>
-  <a href="#contact">Let's talk →</a>
+  <a href="#contact-form">Let's talk →</a>
 </nav>
 
 <!-- HERO -->
@@ -430,7 +430,7 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
       <div class="scard bracket-card rv-card d2"><div class="sc-num">04</div><svg class="sc-icon" width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="3" y="13" width="13" height="11" rx="3" stroke="#00E5A0" stroke-width="1.5"/><rect x="22" y="13" width="13" height="11" rx="3" stroke="#00E5A0" stroke-width="1.5"/><path d="M 16 18.5 L 22 18.5" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/><path d="M 20 16.5 L 22 18.5 L 20 20.5" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="sc-name">Systems & Tools Integration</div><p class="sc-desc">Your tech stack should feel like one system, not twenty separate tools. We connect your CRM, payments, portals, and communication channels into a single operating layer.</p><span class="sc-arr">→</span></div>
       <div class="scard bracket-card rv-card d3"><div class="sc-num">05</div><svg class="sc-icon" width="38" height="38" viewBox="0 0 38 38" fill="none"><polygon points="19,3 35,21 19,39 3,21" stroke="#00E5A0" stroke-width="1.5" fill="none"/><line x1="19" y1="12" x2="19" y2="26" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round"/><polygon points="19,8 16,16 22,16" fill="#00E5A0"/><circle cx="19" cy="27" r="1.5" fill="#00E5A0" opacity="0.6"/></svg><div class="sc-name">Technology Advisory</div><p class="sc-desc">A senior technical partner for founders and leadership teams — helping you decide what to build, when to build it, and how to avoid the mistakes that slow companies down.</p><span class="sc-arr">→</span></div>
     </div>
-    <div class="scta-row rv"><span class="scta-t">Most clients start with a single conversation.</span><a href="#contact" class="btn-g"><span>Let's talk →</span></a></div>
+    <div class="scta-row rv"><span class="scta-t">Most clients start with a single conversation.</span><a href="#contact-form" class="btn-g"><span>Let's talk →</span></a></div>
   </div>
 </section>
 
@@ -573,7 +573,7 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:32px 56px;pos
         <div><label class="flbl">Company / Website</label><input class="finp" id="f-co" type="text" placeholder="yourcompany.com (optional)"></div>
         <div><label class="flbl">What are you working on?</label><textarea class="ftxt" id="f-msg" placeholder="Tell us about the challenge, the scale, and what you've tried so far..." required></textarea></div>
         <button type="submit" class="fsub" id="fsub-btn">Send signal →</button>
-        <div id="form-status" style="display:none;font-family:'DM Mono',monospace;font-size:12px;color:var(--g);text-align:center;padding:12px;border:1px solid rgba(0,229,160,0.25);border-radius:10px;background:rgba(0,229,160,0.06);"></div>
+        <div id="form-status" style="display:none;font-family:'DM Mono',monospace;font-size:12px;color:var(--g);text-align:center;padding:14px;border:1px solid rgba(0,229,160,0.3);border-radius:10px;background:#0a1a12;"></div>
       </form>
       <div class="calt rv d4"><span>Or reach out directly</span><span style="color:var(--bd)">·</span><a href="mailto:nilansh2929@gmail.com">nilansh2929@gmail.com</a><span style="color:var(--bd)">·</span><a href="tel:+917009313783">+91 70093 13783</a><span style="color:var(--bd)">·</span><a href="https://www.linkedin.com/in/nilansh-arora-791086126/" target="_blank" rel="noopener">LinkedIn</a></div>
     </div>
